@@ -1,8 +1,7 @@
 export interface BlogItem {
   id: number;
-  image: string[];
-  name: string;
+  imageUrl: string;
+  category: string;
+  title: string;
   description: string;
-  categoryId: number;
-  price: number;
 }

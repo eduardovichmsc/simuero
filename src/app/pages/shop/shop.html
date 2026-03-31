@@ -5,9 +5,15 @@
 
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-6 overflow-x-auto pb-2 md:pb-0 no-scrollbar">
-      <div class="flex items-center gap-4 md:gap-6 text-gray-500 whitespace-nowrap">
-        @for (category of categories; track $index) {
-          <button class="hover:text-black transition-all cursor-pointer">
+      <div class="flex items-center gap-4 md:gap-6 whitespace-nowrap">
+        @for (category of categories; track category.id) {
+          <button
+            (click)="selectCategory(category.id)"
+            class="transition-colors duration-300 ease-in-out cursor-pointer text-lg"
+            [class.text-black]="selectedCategoryId() === category.id"
+            [class.text-neutral-400]="selectedCategoryId() !== category.id"
+            [class.hover:text-neutral-600]="selectedCategoryId() !== category.id"
+          >
             {{ category.name }}
           </button>
         }
@@ -16,23 +22,31 @@
   </div>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-8">
-    @for (item of items; track $index) {
-      <app-product-card [item]="item" [href]="['/', link, item.id]"></app-product-card>
+    @for (item of filteredItems(); track item.id; let i = $index) {
+      <div class="opacity-0 animate-fade-up" [style.animation-delay.ms]="i * 75">
+        <app-product-card [item]="item" [href]="['/', link, item.id]"></app-product-card>
+      </div>
+    }
+
+    @if (filteredItems().length === 0) {
+      <div class="col-span-full py-[17%] text-center text-neutral-400 opacity-0 animate-fade-up">
+        <p class="text-xl">No pieces found in this category.</p>
+      </div>
     }
   </div>
 
   <div class="flex flex-col md:flex-row justify-between items-center mt-12 gap-8 md:gap-0">
     <button
-      class="font-semibold tracking-tighter disabled:text-neutral-400 text-5xl md:text-7xl lg:text-9xl not-disabled:cursor-pointer transition-all not-disabled:hover:text-neutral-600 -ml-1 md:-ml-2"
+      class="font-semibold tracking-tighter disabled:text-neutral-400 text-5xl md:text-7xl lg:text-9xl not-disabled:cursor-pointer transition-colors duration-300 not-disabled:hover:text-neutral-600 -ml-1 md:-ml-2"
       disabled
     >
       PREV
     </button>
 
     <div class="flex flex-wrap justify-center order-last md:order-none">
-      @for (item of items; track $index) {
+      @for (item of filteredItems(); track $index) {
         <div
-          class="text-neutral-400 hover:text-neutral-600 p-2 m-1 not-disabled:cursor-pointer transition-all duration-500 text-sm md:text-base"
+          class="text-neutral-400 hover:text-neutral-600 p-2 m-1 cursor-pointer transition-colors duration-300 text-sm md:text-base"
         >
           {{ $index + 1 }}
         </div>
@@ -40,7 +54,7 @@
     </div>
 
     <button
-      class="font-semibold tracking-tighter disabled:text-neutral-400 text-5xl md:text-7xl lg:text-9xl not-disabled:cursor-pointer transition-all not-disabled:hover:text-neutral-600"
+      class="font-semibold tracking-tighter disabled:text-neutral-400 text-5xl md:text-7xl lg:text-9xl not-disabled:cursor-pointer transition-colors duration-300 not-disabled:hover:text-neutral-600"
     >
       NEXT
     </button>

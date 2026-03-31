@@ -31,7 +31,7 @@
         <nav class="flex flex-col gap-3">
           @for (item of menuItems; track item) {
             <a
-              [href]="item.href"
+              [routerLink]="item.href"
               class="text-xl md:text-[26px] leading-none hover:text-gray-400 transition-colors duration-300"
             >
               {{ item.label }}
@@ -86,7 +86,7 @@
     class="mt-20 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0"
   >
     <a
-      href="#"
+      routerLink="#"
       class="text-[9px] md:text-[10px] text-gray-500 hover:text-white uppercase tracking-widest transition-colors"
     >
       Privacy policy

@@ -19,7 +19,9 @@
         >
           Why handcrafted jewelry feels more alive than perfect polish.
         </h1>
-        <p class="mt-8 max-w-2xl text-base md:text-lg lg:text-xl text-white tracking-tight">
+        <p
+          class="mt-8 max-w-2xl text-base md:text-lg lg:text-xl font-light text-white tracking-tight"
+        >
           True beauty lives in the details that can't be replicated. Handcrafted jewelry carries
           traces of time, touch and intention.
         </p>
@@ -35,10 +37,15 @@
       <h1 class="text-4xl sm:text-5xl md:text-7xl tracking-tight font-bold max-w-3xl leading-tight">
         Our Blog
       </h1>
-
       <p class="text-base md:text-xl text-gray-700 leading-normal tracking-tight max-w-md">
         Stories and reflections on craftsmenship, design, and timeless beauty
       </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mt-16">
+      @for (blog of blogs; track blog.id) {
+        <app-blog-card [href]="['/', link, blog.id]" [blog]="blog" />
+      }
     </div>
   </div>
 </section>

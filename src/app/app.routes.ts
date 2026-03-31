@@ -23,6 +23,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/blog/blog').then((m) => m.Blog),
   },
   {
+    path: 'blog/:id',
+    loadComponent: () => import('./pages/blog-detail/blog-detail').then((m) => m.BlogDetail),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

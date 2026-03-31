@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal, inject, ChangeDetectorRef } from '@angular/core';
 import { PATHS } from '../../core/configs/paths.config';
 import { Breadcrumbs } from '../../shared/ui/breadcrumbs/breadcrumbs';
-import { productCategories } from '../../data/mock';
+import { productCategories, products } from '../../data/mock';
 import { ProductCard } from '../../shared/ui/product-card/product-card';
 
 @Component({
@@ -12,44 +12,40 @@ import { ProductCard } from '../../shared/ui/product-card/product-card';
 })
 export class Shop {
   link = PATHS.SHOP.ROOT;
+  private cdr = inject(ChangeDetectorRef);
 
   breadcrumbs = [
-    {
-      name: 'Home',
-      href: PATHS.HOME,
-    },
-    {
-      name: 'Shop',
-      href: PATHS.SHOP.ROOT,
-    },
+    { name: 'Home', href: PATHS.HOME },
+    { name: 'Shop', href: PATHS.SHOP.ROOT },
   ];
 
   categories = productCategories;
 
-  items = [
-    {
-      id: 0,
-      image: 'blueprint/simuero-26-delfina-los-delfines-necklace-01.webp',
-      name: 'Bracelett Cherry',
-      price: 389,
-    },
-    {
-      id: 1,
-      image: 'blueprint/ALBA-GD_Simuero-1.webp',
-      name: 'Simuero Ring',
-      price: 250,
-    },
-    {
-      id: 2,
-      image: 'blueprint/ALBA-GD_Simuero-2.webp',
-      name: 'Seashell Necklakes',
-      price: 250,
-    },
-    {
-      id: 3,
-      image: 'blueprint/SOYE-GD_Simuero-1.webp',
-      name: 'Solara Ring',
-      price: 389,
-    },
-  ];
+  allProducts = products.map((p) => ({
+    id: p.id,
+    image: p.image[0],
+    name: p.name,
+    price: p.price,
+    categoryId: p.categoryId,
+  }));
+
+  selectedCategoryId = signal<number>(1);
+
+  filteredItems = computed(() => {
+    const currentCategoryId = this.selectedCategoryId();
+    if (currentCategoryId === 1) return this.allProducts;
+    return this.allProducts.filter((item) => item.categoryId === currentCategoryId);
+  });
+
+  selectCategory(id: number) {
+    if (this.selectedCategoryId() === id) return;
+
+    if ('startViewTransition' in document) {
+      (document as any).startViewTransition(() => {
+        this.selectedCategoryId.set(id);
+      });
+    } else {
+      this.selectedCategoryId.set(id);
+    }
+  }
 }

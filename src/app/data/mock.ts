@@ -79,3 +79,66 @@ export const productCategories: Category[] = [
     name: 'Necklace',
   },
 ];
+
+export const blogs = [
+  {
+    id: 1,
+    imageUrl:
+      'https://images.unsplash.com/photo-1599643478524-fb66f70a00ba?q=80&w=800&auto=format&fit=crop', // Девушка с кулоном
+    category: 'Jewelry Trends',
+    title: 'Jewelry Trends to Watch This Season',
+    description:
+      'The beauty of imperfection lies in honesty — handcrafted pieces that move, breathe, and belong to no mold.',
+    url: '/article/1',
+  },
+  {
+    id: 2,
+    imageUrl:
+      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop', // Профиль девушки
+    category: 'Jewelry Care',
+    title: 'Sustainability in Fine Jewelry',
+    description:
+      'Each piece is hand-sculpted to capture the warmth of touch and the softness of organic forms. Inspired by the rhythm of waves,',
+    url: '/article/2',
+  },
+  {
+    id: 3,
+    imageUrl:
+      'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop', // Руки с кольцами
+    category: 'Art of Layering',
+    title: 'How to Choose the Perfect Gift',
+    description:
+      'The beauty of imperfection lies in honesty — handcrafted pieces that move, breathe, and belong to no mold.',
+    url: '/article/3',
+  },
+  {
+    id: 4,
+    imageUrl:
+      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop', // Девушка крупный план (бьюти)
+    category: 'Layers of Light',
+    title: 'Mixing Metals — The New Classic',
+    description:
+      'The beauty of imperfection lies in honesty — handcrafted pieces that move, breathe, and belong to no mold.',
+    url: '/article/4',
+  },
+  {
+    id: 5,
+    imageUrl:
+      'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=800&auto=format&fit=crop', // Крупный план уха/серьги
+    category: 'Jewelry Trends',
+    title: 'How to Style Minimal Jewelry',
+    description:
+      'Each piece is hand-sculpted to capture the warmth of touch and the softness of organic forms. Inspired by the rhythm of waves,',
+    url: '/article/5',
+  },
+  {
+    id: 6,
+    imageUrl:
+      'https://images.unsplash.com/photo-1610986165502-1ef0ee94cdd8?q=80&w=800&auto=format&fit=crop', // Эстетика, руки у воды с украшениями
+    category: 'Art of Layering',
+    title: 'The Meaning Behind Stones and Symbols',
+    description:
+      'The beauty of imperfection lies in honesty — handcrafted pieces that move, breathe, and belong to no mold.',
+    url: '/article/6',
+  },
+];
