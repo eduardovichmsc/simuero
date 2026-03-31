@@ -1,0 +1,81 @@
+import { AnyProduct, Bracelet, Category, Ring } from '../shared/models/product.model';
+
+export const products: AnyProduct[] = [
+  {
+    id: 0,
+    image: [
+      'blueprint/simuero-26-delfina-los-delfines-necklace-01.webp',
+      'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000',
+      'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=1000',
+    ],
+    name: 'Bracelet Cherry',
+    description:
+      'Elegant cherry-themed bracelet with fine detailing. Handcrafted with precision to ensure a unique organic feel for every wearer.',
+    categoryId: 3,
+    price: 389,
+    length: 18,
+    hasCharm: true,
+  } as Bracelet,
+  {
+    id: 1,
+    image: [
+      'blueprint/ALBA-GD_Simuero-1.webp',
+      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1000',
+      'https://images.unsplash.com/photo-1603561591411-0e7310f3915c?q=80&w=1000',
+    ],
+    name: 'Simuero Ring',
+    description:
+      'Raw. Radiant. Eternal. Handcrafted gold ring with organic texture and engraved ancient symbols. Each piece is individually cast, giving it a raw yet elegant finish that captures the warmth of the sun. Hand-sculpted gold ring with organic texture and engraved symbols reminiscent of ancient sun emblems. Each curve and imperfection tells a story of light, resiliency, and individuality. A statement piece born from the meeting of earth and fire - bold, imperfect, alive.',
+    categoryId: 2,
+    price: 250,
+    sizes: [16, 17, 18],
+    material: 'Gold 18k',
+  } as Ring,
+  {
+    id: 2,
+    image: [
+      'blueprint/ALBA-GD_Simuero-2.webp',
+      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000',
+      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1000',
+    ],
+    name: 'Seashell Necklace',
+    description:
+      'Unique necklace inspired by Mediterranean sea shells. A delicate piece that brings the essence of the ocean to your everyday look.',
+    categoryId: 34,
+    price: 250,
+  },
+  {
+    id: 3,
+    image: [
+      'blueprint/SOYE-GD_Simuero-1.webp',
+      'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?q=80&w=1000',
+      'https://images.unsplash.com/photo-1589128777073-263566ae5e4d?q=80&w=1000',
+    ],
+    name: 'Solara Ring',
+    description:
+      'Bold statement ring featuring a sun-inspired design. Its textured surface reflects light like the dancing waves at sunset.',
+    categoryId: 2,
+    price: 389,
+    sizes: [15, 16, 17, 18],
+    material: 'Silver 925',
+  } as Ring,
+];
+
+export const productCategories: Category[] = [
+  {
+    id: 1,
+    name: 'All',
+  },
+  {
+    id: 2,
+    name: 'Ring',
+  },
+  {
+    id: 3,
+    name: 'Bracelet',
+  },
+  {
+    id: 4,
+    name: 'Necklace',
+  },
+];

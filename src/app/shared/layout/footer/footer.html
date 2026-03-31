@@ -1,0 +1,98 @@
+<footer
+  class="w-full bg-neutral-900 text-white px-4 py-10 md:px-8 md:py-16 flex flex-col justify-between min-h-[80vh] lg:min-h-screen"
+>
+  <!-- Top -->
+  <div class="flex flex-col lg:flex-row gap-16 lg:gap-0 h-full flex-grow">
+    <!-- Top Left -->
+    <div class="w-full lg:w-[35%] flex flex-col justify-between">
+      <div class="mb-16 lg:mb-0">
+        <svg
+          width="76"
+          height="76"
+          viewBox="0 0 76 76"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0 76H26V26L0 52V76Z" fill="white" />
+          <path d="M50 76H76V30C76 15.6406 64.3594 4 50 4V76Z" fill="white" />
+          <path d="M26 26C26 13.8497 35.8497 4 48 4H50V26H26Z" fill="white" />
+        </svg>
+      </div>
+
+      <p class="text-[13px] leading-[1.4] text-gray-400 max-w-[280px]">
+        By subscribing you agree to receive our emails and accept our Privacy Policy
+      </p>
+    </div>
+    <!-- Right -->
+    <div class="w-full lg:w-[65%] flex flex-col justify-between gap-16 lg:gap-0">
+      <!-- Menu -->
+      <div class="grid grid-cols-1 md:grid-cols-[120px_1fr_auto] gap-6 md:gap-8 items-start">
+        <span class="text-[10px] text-gray-500 uppercase tracking-widest pt-2 md:pt-3">Menu</span>
+        <nav class="flex flex-col gap-3">
+          @for (item of menuItems; track item) {
+            <a
+              [href]="item.href"
+              class="text-xl md:text-[26px] leading-none hover:text-gray-400 transition-colors duration-300"
+            >
+              {{ item.label }}
+            </a>
+          }
+        </nav>
+        <button
+          class="hidden md:block bg-white text-black text-xs font-bold uppercase tracking-wider px-6 py-3 hover:bg-gray-200 transition-colors"
+        >
+          Get in Touch
+        </button>
+      </div>
+
+      <!-- Contacts -->
+      <div class="grid grid-cols-1 md:grid-cols-[120px_1fr_auto] gap-6 md:gap-8 items-start">
+        <span class="text-[10px] text-gray-500 uppercase tracking-widest pt-1">Contacts</span>
+        <div class="flex flex-col gap-1.5">
+          @for (phone of phones; track phone) {
+            <a
+              [href]="'tel:' + phone.replace(/[^0-9+]/g, '')"
+              class="text-sm md:text-base hover:text-gray-400 transition-colors duration-300"
+            >
+              {{ phone }}
+            </a>
+          }
+        </div>
+        <span class="text-[11px] md:text-[13px] text-white">© 2025</span>
+      </div>
+
+      <!-- E-mail -->
+      <div class="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-6 md:gap-8 items-baseline">
+        <span class="text-[10px] text-gray-500 uppercase tracking-widest">E-mail</span>
+        <a
+          href="mailto:orc@bavdom.ru"
+          class="text-4xl md:text-[3.5rem] lg:text-[4.5rem] leading-none font-medium uppercase tracking-tight hover:text-gray-300 transition-colors duration-300 break-all md:break-normal"
+        >
+          orc&#64;bavdom.ru
+        </a>
+      </div>
+
+      <!-- For Mobile -->
+      <button
+        class="md:hidden w-full bg-white text-black text-[11px] font-bold uppercase tracking-wider px-6 py-4 mt-8"
+      >
+        Get in touch
+      </button>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div
+    class="mt-20 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0"
+  >
+    <a
+      href="#"
+      class="text-[9px] md:text-[10px] text-gray-500 hover:text-white uppercase tracking-widest transition-colors"
+    >
+      Privacy policy
+    </a>
+    <span class="text-[9px] md:text-[10px] text-gray-500 uppercase tracking-widest text-center">
+      All rights are reserved
+    </span>
+  </div>
+</footer>

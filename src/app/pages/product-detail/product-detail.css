@@ -1,0 +1,12 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.image-fade {
+  animation: fadeIn 0.5s ease-in-out;
+}
